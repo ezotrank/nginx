@@ -30,7 +30,7 @@ default['nginx']['source']['default_configure_flags'] = [
 
 default['nginx']['configure_flags']  = Array.new
 default['nginx']['source']['url']     = "http://nginx.org/download/nginx-#{node['nginx']['version']}.tar.gz"
-default['nginx']['source']['checksum'] = "0510af71adac4b90484ac8caf3b8bd519a0f7126250c2799554d7a751a2db388"
+default['nginx']['source']['checksum'] = "2136d5ffa3180632fb051ab4df12fcd93bcddb59d53814e9c60aca1d90dc62b1"
 default['nginx']['source']['modules'] = [
   "http_ssl_module",
   "http_gzip_static_module"

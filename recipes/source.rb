@@ -84,6 +84,7 @@ when "runit"
     supports :status => true, :restart => true, :reload => true
     reload_command "#{node['runit']['sv_bin']} hup #{node['runit']['service_dir']}/nginx"
   end
+
 when "bluepill"
   include_recipe "bluepill"
 
@@ -146,6 +147,15 @@ else
     supports :status => true, :restart => true, :reload => true
     action :enable
   end
+
+  if node['nginx']['init_style'] == 'monit'
+    include_recipe "monit"
+
+    monitrc "monit_nginx" do
+      template_cookbook "nginx"
+    end
+  end
+
 end
 
 include_recipe "nginx::commons_conf"
